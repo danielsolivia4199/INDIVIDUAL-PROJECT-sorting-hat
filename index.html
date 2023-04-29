@@ -6,60 +6,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="main.css">
-  <title>Document</title>
+  <title>Sorting Hat</title>
 </head>
 <body>
-    <div class="card" id="sortingmenu">
-      <div class="card-body">
-        <p class="card-text">There's nothing hidden in your head
-        The Sorting Hat can't see,
-        So try me on and I will tell you
-        Where you ought to be.
-        You might belong in Gryffindor,
-        Where dwell the brave at heart,
-        Their daring, nerve, and chivalry Set Gryffindors apart;
-        You might belong in Hufflepuff,
-        Where they are just and loyal,
-        Those patient Hufflepuffis are true And unafraid of toil;
-        Or yet in wise old Ravenclaw,
-        if you've a ready mind,
-        Where those of wit and learning,
-        Will always find their kind;
-        Or perhaps in Slytherin
-        You'll make your real friends,
-        Those cunning folk use any means
-        To achieve their ends.
-        So put me on! Don't be afraid!
-        And don't get in a flap!
-        You're in safe hands (though I have none)
-        For I'm a Thinking Cap!</p>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sortingModal">Put Hat On!</button>
-
-    <div class="modal fade" id="sortingModal" tabindex="-1" role="dialog" aria-labelledby="sortingModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="sortingModalLabel">House Placement</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="form-floating mb-3">
-              <h2>You have been called! Write your name and the Sorting Hat will take care of the rest!</h2>
-              <input type="text" class="form-control" id="name" placeholder="Name" required>
+  <h1 style="text-align: center;">Hogwart's Housing Placement</h1>
+  <div class="talkingsortinghat">
+  <img id="sortinghatgif" src="https://custom-doodle.com/wp-content/uploads/doodle/harry-potter-sorting-hat/harry-potter-sorting-hat-doodle.gif">
+  <div class="card" style="width: 18rem; height: 25rem;        text-align: center;">
+      <h5 class="card-title">Sorting Hat</h5>
+      <p class="card-text" >A thousand years or more ago, when I was newly sewn, there lived four wizards of renown, whose name are still well-known: Bold Gryffindor from wild moor, Fair Ravlenclaw from glen, Sweet Hufflepuff from valley broad, Shrewd Slytherin from fen. They share a wish, a hope, a dream, they hatched a daring plan, to educate young sorcerers, thus Hogwarts school began.</p>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sortingModal">Put Hat On!</button>
+  </div>
+  </div>
+  <div class="modal fade" id="sortingModal" tabindex="-1" role="dialog" aria-labelledby="sortingModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="sortingModalLabel">House Placement</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-floating mb-3">
+            <h2>You have been called! Write your name and the Sorting Hat will take care of the rest!</h2>
+            <input type="text" class="form-control" id="name" placeholder="Name" required>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">House Assignment</button> 
+            <button type="submit" class="btn btn-primary" data-dismiss="modal" id="form-submit">House Assignment</button> 
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <div class="housebuttons">
+      <button type="button" class="btn btn-success" id="a-btn">All</button>
+      <button type="button" class="btn btn-success" id="g-btn">Gryffindor</button>
+      <button type="button" class="btn btn-success" id="r-btn">Ravenclaw</button>
+      <button type="button" class="btn btn-success" id="h-btn">Hufflepuff</button>
+      <button type="button" class="btn btn-success" id="s-btn">Slytherin</button>
+  <div id="app"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+</html>
 </body>
 </html>
