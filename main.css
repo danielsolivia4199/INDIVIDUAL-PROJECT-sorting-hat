@@ -1,3 +1,53 @@
+
+body {
+
+background-image: url('https://i.redd.it/cb01vspg34z31.png');
+
+}
+
+@font-face {
+src: url(MagicSchoolTwo.ttf);
+font-family: harrypotterzap;
+
+}
+
+@font-face {
+src: url(RomanceA.ttf);
+font-family: romancepixel;
+}
+
 .housebuttons {
-  gap: 30px; 
+
+gap: 30px;
+
+font-family: romancepixel;
+
+}
+
+.card {
+
+margin-bottom: 10px;
+
+border: 2px solid gold;
+
+text-align: center;
+
+padding: 5px;
+
+font-family: romancepixel;
+
+  
+
+}
+
+#webtitle {
+
+font-family: harrypotterzap;
+
+font-size: 90px;
+
+margin-top: 30px;
+
+  
+
 }
