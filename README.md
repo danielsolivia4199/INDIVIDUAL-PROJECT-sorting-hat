@@ -1,4 +1,4 @@
-# Sorting Hat
+# Sorting Hat https://luxury-banoffee-b6021e.netlify.app/
 
 ## Goals
 The goal of this project is to test your knowledge and to have a FUN time stretching yourself on your FIRST independent application that will become a part of your portfolio.
