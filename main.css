@@ -1,14 +1,11 @@
 
 body {
-
 background-image: url('https://i.redd.it/cb01vspg34z31.png');
-
 }
 
 @font-face {
 src: url(MagicSchoolTwo.ttf);
 font-family: harrypotterzap;
-
 }
 
 @font-face {
@@ -17,57 +14,40 @@ font-family: romancepixel;
 }
 
 .housebuttons {
-
-gap: 30px;
 font-family: romancepixel;
 margin-bottom: 20px;
 margin-top: 20px;
-
 }
 
 .card {
-
 margin-bottom: 10px;
-
 border: 2px solid gold;
-
 text-align: center;
-
 padding: 5px;
-
 font-family: romancepixel;
-
-  
-
 }
 
 #webtitle {
-
 font-family: harrypotterzap;
-
 font-size: 90px;
-
 margin-top: 30px;
-
-  
-
 }
 
 #exampleModalLabel{
-  font-family: romancepixel;
+font-family: romancepixel;
 }
-#name {
-  font-family: romancepixel;
-}
-#form-submit {
-  font-family: romancepixel;
-  background-color:  gold;
-  border: gold;
-  color: black;
-}
-#hatbtn{
-  background-color: gold;
-}
-.housebuttons{
 
+#name {
+font-family: romancepixel;
+}
+
+#form-submit {
+font-family: romancepixel;
+background-color:  gold;
+border: gold;
+color: black;
+}
+
+#hatbtn{
+background-color: gold;
 }
