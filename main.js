@@ -1,17 +1,10 @@
 const students = [
-
   {
-  
   id: 1,
-  
   name: "Harry Potter",
-  
   house: "Gryffindor",
-  
   imageUrl: "https://i.pinimg.com/564x/85/3b/77/853b77fd0ade8e3983ef8c5ec5b974d2.jpg",
-  
   },
-  
   {
   
   id: 2,
@@ -106,7 +99,31 @@ const students = [
   
   imageUrl: "https://i.pinimg.com/564x/ed/66/2c/ed662c95a88d55359d0ec6da61636ca0.jpg",
   
-  }
+  },
+
+  {
+
+  id: 10,
+  
+  name: "Dementhor",
+  
+  house: "Voldemort's Army",
+  
+  imageUrl: "https://i.pinimg.com/564x/16/d9/70/16d9706f4c1301be0c496dec7791e33e.jpg",
+  
+  },
+
+  {
+
+    id: 11,
+    
+    name: "Death Eater",
+    
+    house: "Voldemort's Army",
+    
+    imageUrl: "https://i.pinimg.com/564x/18/bc/61/18bc61a4041dc3f8b917f634f6f080cd.jpg",
+    
+  },
   
   ];
   
@@ -181,6 +198,8 @@ const students = [
   const showHufflepuffButton = document.querySelector("#h-btn");
   
   const showSlytherinButton = document.querySelector("#s-btn");
+
+  const showVoldemortButton = document.querySelector("#v-btn");
   
     
   
@@ -221,6 +240,11 @@ const students = [
   cardsOnDom(slytherinHouse);
   
   });
+
+  showVoldemortButton.addEventListener('click', () => {
+    const voldemortHouse = filter(students, "Voldemort's Army");
+    cardsOnDom(voldemortHouse);
+  })
   
     
   
@@ -228,76 +252,44 @@ const students = [
   
     
   
-  const modal = document.querySelector('modal');
+  const form = document.querySelector('form');
   
     
   
   //function that grabs all the values from the form and pushes the info
   
-    
-  
   const createStudent = (e) => {
-  
   e.preventDefault();
-  
-    
-  
   const newStudentObj = {
-  
   id: students.length + 1,
-  
-  name: document.querySelector('#name').value,
-  
-  house: document.querySelector('#house').value
-  
+  name: document.querySelector('#name').value
   }
   
-    
   
   students.push(newStudentObj);
-  
   cardsOnDom(students);
-  
-  modal.reset();
-  
+  form.reset();
   }
   
   //add event listener for the form submit and pass it the function
-  
-    
-  
-  modal.addEventListener('submit', createStudent);
-  
-    
-  
+  form.addEventListener('submit', createStudent);
   const app = document.querySelector('#app');
-  
     
-  
   app.addEventListener('click', (e) => {
-  
-  if (e.target.id.includes("Expel")) {
-  
+  if (e.target.id.includes("delete")) {
   const [,id] = e.target.id.split("--");
-  
   const index = students.findIndex(e => e.id === Number(id));
-  
   students.splice(index,1);
-  
   cardsOnDom(students);
-  
   }
-  
   });
+
+
   
     
   
   const startApp = () => {
-  
   cardsOnDom(students);
-  
   }
-  
-    
-  
+
   startApp();

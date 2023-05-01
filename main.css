@@ -19,8 +19,9 @@ font-family: romancepixel;
 .housebuttons {
 
 gap: 30px;
-
 font-family: romancepixel;
+margin-bottom: 20px;
+margin-top: 20px;
 
 }
 
@@ -49,5 +50,24 @@ font-size: 90px;
 margin-top: 30px;
 
   
+
+}
+
+#exampleModalLabel{
+  font-family: romancepixel;
+}
+#name {
+  font-family: romancepixel;
+}
+#form-submit {
+  font-family: romancepixel;
+  background-color:  gold;
+  border: gold;
+  color: black;
+}
+#hatbtn{
+  background-color: gold;
+}
+.housebuttons{
 
 }
