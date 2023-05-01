@@ -260,9 +260,12 @@ const students = [
   
   const createStudent = (e) => {
   e.preventDefault();
+  const houses = ['Gryffindor', 'Slytherin', 'Hufflepuff', 'Ravenclaw'];
+  const houseIndex = Math.floor(Math.random() * 4);
   const newStudentObj = {
-  id: students.length + 1,
-  name: document.querySelector('#name').value
+    id: students.length + 1,
+    name: document.querySelector('#name').value,
+    house: houses[houseIndex]
   }
   
   
@@ -274,6 +277,7 @@ const students = [
   //add event listener for the form submit and pass it the function
   form.addEventListener('submit', createStudent);
   const app = document.querySelector('#app');
+
     
   app.addEventListener('click', (e) => {
   if (e.target.id.includes("delete")) {
