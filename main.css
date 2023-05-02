@@ -56,5 +56,6 @@ background-color: gold;
   font-family: harrypotterzap;
   font-size: 70px;
 }
-
-
+#expelledcards {
+  background-color: red;
+}
