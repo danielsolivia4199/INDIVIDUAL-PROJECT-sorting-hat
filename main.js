@@ -89,45 +89,12 @@ const selectedDiv = document.querySelector(divId);
 selectedDiv.innerHTML = htmlToRender;
   // sets the 'innerHTML' property of the 'selectedDiv' element to the 'htmlToRender' argument passed to the 'renderToDom function. This replaces any existing HTML content in the selected element with the new content
 };
-  
 
-
-  /*
-  for (const student of array) {
-  domString +=
-  `<div class="card" style="width: 12rem;">
-  <img src=${student.imageUrl} class="card-img-top" alt=${student.name}>
-  <div class="card-body">
-  <h5 class="card-title">${student.name}</h5>
-  <p>House: ${student.house}</p>
-  <button class="btn btn-danger" id="delete--${student.id}">Expel</button>
-  </div>
-  </div>`; }
-  
-  renderToDom("#app", domString);
-};
-*/
-
-/*
-cardsOnDom(students);
-  const filter = (array, houseString) => {
-  const houseArray = [];
-  for (const student of array) {
-  if (student.house === houseString) {
-  houseArray.push(student);
-  }
-  }
-  return houseArray;
-};
-*/
-
-
-  
-
-  
+function filter(array, value) {
+  return array.filter(item => item.house === value);
+}
 
 const showAllButton = document.querySelector("#a-btn"); //selects the HTML element with the ID "a-btn" and assigns it to the showAllButton variable using the querySelector method of the document object. The document object reps the webpage in the browser. querySelector method allows you to select HTML elements in the web page useing a css selector # the selector is looking for an element with a specific id
-  
 const showGryffindorButton = document.querySelector("#g-btn");
   
 const showRavenclawButton = document.querySelector("#r-btn");
