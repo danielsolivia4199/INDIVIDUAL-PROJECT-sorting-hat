@@ -98,54 +98,6 @@ selectedDiv.innerHTML = htmlToRender;
 };
   
 
-const expelledStudents = [];
-
-const cardsOnDom = (array) => {
-  let domString = "";
-  for (const student of array) {
-    domString +=
-    `<div class="card" style="width: 12rem;">
-      <img src=${student.imageUrl} class="card-img-top" alt=${student.name}>
-      <div class="card-body>
-        <h5 class="card-title">${student.name}</h5>
-        <p>House: ${student.house}</p>
-        <button class="btn btn-danger" id="delete--${student.id}">Expel</button>
-      </div>
-    </div>`;
-  }
-  
-  renderToDom("#app", domString);
-  
-  const deleteButtons = document.querySelectorAll(".btn-danger");
-  deleteButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      const studentId = parseInt(e.target.id.split("--")[1]);
-      const index = students.findIndex((student) => student.id === studentId);
-      const expelledStudent = students.splice(index, 1)[0];
-      expelledStudents.push(expelledStudent);
-      renderExpelledToDom(expelledStudents);
-      cardsOnDom(students);
-    });
-  });
-};
-
-const renderExpelledToDom = (array) => {
-  let domString = "";
-  for (const student of array) {
-    domString +=
-    `<div class="card" style="width: 12rem;">
-      <img src=${student.imageUrl} class="card-img-top" alt=${student.name}>
-      <div class="card-body>
-        <h5 class="card-title">${student.name}</h5>
-        <p>House: ${student.house}</p>
-      </div>
-    </div>`;
-  }
-  
-  renderToDom("#expelled-students", domString);
-};
-
-
 
   /*
   for (const student of array) {
@@ -179,7 +131,8 @@ cardsOnDom(students);
 
 
   
-  
+
+
     
   
 const showAllButton = document.querySelector("#a-btn"); //selects the HTML element with the ID "a-btn" and assigns it to the showAllButton variable using the querySelector method of the document object. The document object reps the webpage in the browser. querySelector method allows you to select HTML elements in the web page useing a css selector # the selector is looking for an element with a specific id
@@ -192,7 +145,6 @@ const showHufflepuffButton = document.querySelector("#h-btn");
   
 const showSlytherinButton = document.querySelector("#s-btn");
 
-const showVoldemortButton = document.querySelector("#v-btn");
   
     
 showAllButton.addEventListener('click', () => { //adds an event listener to the showAllButton element, which triggers a call back function when the button is clicked
@@ -220,15 +172,13 @@ showSlytherinButton.addEventListener('click', () => {
   cardsOnDom(slytherinHouse);
   });
 
-showVoldemortButton.addEventListener('click', () => {
-  const voldemortHouse = filter(students, "Voldemort's Army");
-  cardsOnDom(voldemortHouse);
-  });
   
     
   
 //select and target the form on the DOM
 const form = document.querySelector('form');
+
+
   
     
   
@@ -267,6 +217,53 @@ app.addEventListener('click', (e) => {
 });
 
 */
+
+const expelledStudents = [];
+
+const cardsOnDom = (array) => {
+  let domString = "";
+  for (const student of array) {
+    domString +=
+    `<div class="card" style="width: 12rem;">
+      <img src=${student.imageUrl} class="card-img-top" alt=${student.name}>
+      <div class="card-body>
+        <h5 class="card-title">${student.name}</h5>
+        <p>House: ${student.house}</p>
+        <button class="btn btn-danger" id="delete--${student.id}">Expel</button>
+      </div>
+    </div>`;
+  }
+  
+  renderToDom("#app", domString);
+  
+  const deleteButtons = document.querySelectorAll(".btn-danger");
+  deleteButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const studentId = parseInt(e.target.id.split("--")[1]);
+      const index = students.findIndex((student) => student.id === studentId);
+      const expelledStudent = students.splice(index, 1)[0];
+      expelledStudents.push(expelledStudent);
+      renderExpelledToDom(expelledStudents);
+      cardsOnDom(students);
+    });
+  });
+};
+
+const renderExpelledToDom = (array) => {
+  let domString = "";
+  for (const student of array) {
+    domString +=
+    `<div class="card" style="width: 12rem;">
+      <img src=${student.imageUrl} class="card-img-top" alt=${student.name}>
+      <div class="card-body">
+        <h5 class="card-title">${student.name}</h5>
+      </div>
+    </div>`;
+  }
+  
+  renderToDom("#expelled-students", domString);
+};
+
 
 
 
