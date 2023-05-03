@@ -12,63 +12,62 @@
 </head>
 
 <body>
-  <h1 style="text-align: center;" id="webtitle">Hogwart's Housing Placement</h1>
 
-  <img id="sortinghatgif" src="https://custom-doodle.com/wp-content/uploads/doodle/harry-potter-sorting-hat/harry-potter-sorting-hat-doodle.gif">
 
-  <div class="card" style="width: 18rem; height: 25rem; text-align: center;">
+  <h1 style="text-align: center;" id="webtitle">Hogwart's Sorting Ceremony</h1>
+
+  <div class="hat-and-card">
+  <img id="sortinghatgif" src="https://custom-doodle.com/wp-content/uploads/doodle/harry-potter-sorting-hat/harry-potter-sorting-hat-doodle.gif"/>
+
+  <div class="card" id="sortingcard" style="width: 18rem; height: fit-content; text-align: center;">
     <h5 class="card-title">Sorting Hat</h5>
-
     <p class="card-text" >A thousand years or more ago, when I was newly sewn, there lived four wizards of renown, whose name are still well-known: Bold Gryffindor from wild moor, Fair Ravlenclaw from glen, Sweet Hufflepuff from valley broad, Shrewd Slytherin from fen. They share a wish, a hope, a dream, they hatched a daring plan, to educate young sorcerers, thus Hogwarts school began.</p>
-
-  <div class="modalbutton">
     <button type="button" class="btn btn-lg btn-modal" data-bs-toggle="modal" data-bs-target="#exampleModal" id="hatbtn">
     Put Hat On!</button>
   </div>
-
+  
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-  <div class="modal-content">
-  <div class="modal-header">
-    <h1 class="modal-title fs-5" id="exampleModalLabel">You have been called! Type your name below and the Sorting Hat will take care of the rest. Good luck!</h1>
-  </div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">You have been called! Type your name below and the Sorting Hat will take care of the rest. Good luck!</h1>
+        </div>
 
-  <div class="modal-body">
-  <form>
-  <div class="form-floating mb-3">
-    <input type="text" class="form-control" id="name" placeholder="Name" required>
-    <label for="floatingInput"></label>
-  </div>
-  <button type="submit" class="btn btn-success" id="form-submit" data-bs-dismiss="modal">Housing Placement</button>
-  </form>
-  </div>
-  </div>
+        <div class="modal-body">
+          <form>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="name" placeholder="Name" required>
+            <label for="floatingInput"></label>
+          </div>
+          <button type="submit" class="btn btn-success" id="form-submit" data-bs-dismiss="modal">Ta-Da!</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
   </div>
 
   <div class="housebuttons">
     <button type="button" class="btn btn-success" id="a-btn">All</button>
-
     <button type="button" class="btn btn-success" id="g-btn">Gryffindor</button>
-
     <button type="button" class="btn btn-success" id="r-btn">Ravenclaw</button>
-
     <button type="button" class="btn btn-success" id="h-btn">Hufflepuff</button>
-    
     <button type="button" class="btn btn-success" id="s-btn">Slytherin</button>
   </div>
 
-<!--Below Code: this provides a placehoder on the webpage for the JS code to insert the generated cards. In JS the line 'const app = document.querySelector('#app');' selects the HTML element with the id of app using the querySelector method. Then the cardsOnDom function is called with the 'students' array as an argument. This function generates HTML elements for each student in the array and appends them to the app element using the appendChild method. By selecting the app element and appending the HTML, the cardsOnDom function is able to put the cards on the webpage. The code below provides the JS code to insert the cards-->
 
-<!--container for students-->
-<div id="app"></div>
-<!--container for expelled students-->
-<h5 id="Army">Voldemort's Army</h5>
-<div id="expelled-students">
-</div>
+  <!--Below Code: this provides a placehoder on the webpage for the JS code to insert the generated cards. In JS the line 'const app = document.querySelector('#app');' selects the HTML element with the id of app using the querySelector method. Then the cardsOnDom function is called with the 'students' array as an argument. This function generates HTML elements for each student in the array and appends them to the app element using the appendChild method. By selecting the app element and appending the HTML, the cardsOnDom function is able to put the cards on the webpage. The code below provides the JS code to insert the cards-->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-<script src="main.js"></script>
-</html>
+  <!--container for students-->
+  <div id="app"></div>
+  <!--container for expelled students-->
+  <h5 id="Army" style="text-align: center;">Voldemort's Army</h5>
+  <h4 id="armytxt" style="text-align: center;"></h4>
+  <div id="expelled-students"></div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+  </html>
 </body>
 </html>
