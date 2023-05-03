@@ -3,6 +3,13 @@ body {
 background-image: url('https://i.redd.it/cb01vspg34z31.png');
 }
 
+.hat-and-card{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  
+}
+
 @font-face {
 src: url(MagicSchoolTwo.ttf);
 font-family: harrypotterzap;
@@ -13,10 +20,14 @@ src: url(RomanceA.ttf);
 font-family: romancepixel;
 }
 
+
 .housebuttons {
+display: flex;
+justify-content: center;
+align-content: space-around;
+gap: 100px;
 font-family: romancepixel;
-margin-bottom: 20px;
-margin-top: 20px;
+margin-bottom: 50px;
 }
 
 .card {
@@ -58,4 +69,20 @@ background-color: gold;
 }
 #expelledcards {
   background-color: red;
+}
+
+#app {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-left: 30px;
+
+}
+
+#expelled-students{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 50px;
 }

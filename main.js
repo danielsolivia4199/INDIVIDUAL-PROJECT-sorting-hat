@@ -4,6 +4,7 @@ const students = [
   name: "Harry Potter",
   house: "Gryffindor",
   imageUrl: "https://i.pinimg.com/564x/85/3b/77/853b77fd0ade8e3983ef8c5ec5b974d2.jpg",
+  description: "Come Join Us!"
   },
 
   {
@@ -11,6 +12,7 @@ const students = [
   name: "Hermione Granger",
   house: "Gryffindor",
   imageUrl: "https://i.pinimg.com/564x/ea/15/76/ea15769570a92999465e3f030b485d12.jpg",
+  description: "Come Join Us!"
   },
   
   {
@@ -18,6 +20,7 @@ const students = [
   name: "Ron Weasley",
   house: "Gryffindor",
   imageUrl:"https://i.pinimg.com/564x/0d/74/6e/0d746e842e929045793cb9ffb86ffc84.jpg",
+  description: "Come Join Us!"
   },
   
   {
@@ -25,6 +28,7 @@ const students = [
   name: "Sirius Black",
   house: "Gryffindor",
   imageUrl: "https://i.pinimg.com/564x/49/5f/7b/495f7b0244f1b9263ce936a35dfe88e2.jpg",
+  description: "Come Join Us!"
   },
   
   {
@@ -32,6 +36,7 @@ const students = [
   name: "Luna Lovegood",
   house: "Ravenclaw",
   imageUrl:"https://i.pinimg.com/564x/fe/19/66/fe19662c3e6b7204438d75fccba11ef6.jpg",
+  description: "Come Join Us!"
   },
   
   {
@@ -39,6 +44,7 @@ const students = [
   name: "Severus Snape",
   house: "Slytherin",
   imageUrl: "https://i.pinimg.com/564x/c6/6c/f6/c66cf657210b7892bfc11b0ef34951d9.jpg",
+  description: "Come Join Us!"
   },
   
   {
@@ -46,6 +52,7 @@ const students = [
   name: "Draco Malfoy",
   house: "Slytherin",
   imageUrl: "https://i.pinimg.com/564x/b0/39/23/b0392379c1d2701dea865924c4d950e1.jpg",
+  description: "Come Join Us!"
   },
   
   {
@@ -53,6 +60,7 @@ const students = [
   name: "Bellatrix Lestrange",
   house: "Slytherin",
   imageUrl: "https://i.pinimg.com/originals/8b/64/89/8b64898804552888380c0b8893a2693b.png",
+  description: "Come Join Us!"
   },
   
   {
@@ -60,23 +68,8 @@ const students = [
   name: "Alastor Moody",
   house: "Hufflepuff",
   imageUrl: "https://i.pinimg.com/564x/ed/66/2c/ed662c95a88d55359d0ec6da61636ca0.jpg",
-  },
-
-  /*{
-  id: 10,
-  name: "Dementhor",
-  house: "Voldemort's Army",
-  imageUrl: "https://i.pinimg.com/564x/16/d9/70/16d9706f4c1301be0c496dec7791e33e.jpg",
-  },
-
-  {
-  id: 11,
-  name: "Death Eater",
-  house: "Voldemort's Army",
-  imageUrl: "https://i.pinimg.com/564x/18/bc/61/18bc61a4041dc3f8b917f634f6f080cd.jpg", 
-  },
-  */
-  
+  description: "Come Join Us!"
+  }, 
 ];
 
 //above code: array of students objects. Each student has a unique id, name, house, and image  
@@ -90,10 +83,6 @@ selectedDiv.innerHTML = htmlToRender;
   // sets the 'innerHTML' property of the 'selectedDiv' element to the 'htmlToRender' argument passed to the 'renderToDom function. This replaces any existing HTML content in the selected element with the new content
 };
 
-function filter(array, value) {
-  return array.filter(item => item.house === value);
-}
-
 const showAllButton = document.querySelector("#a-btn"); //selects the HTML element with the ID "a-btn" and assigns it to the showAllButton variable using the querySelector method of the document object. The document object reps the webpage in the browser. querySelector method allows you to select HTML elements in the web page useing a css selector # the selector is looking for an element with a specific id
 const showGryffindorButton = document.querySelector("#g-btn");
   
@@ -103,6 +92,12 @@ const showHufflepuffButton = document.querySelector("#h-btn");
   
 const showSlytherinButton = document.querySelector("#s-btn");
 
+//this function takes an array and a value as arguments.
+//Function filters through an array of objects (students) based on the property (house) value. It then returns a new array that only conains the objects with the mathching propery value.
+function filter(array, value) {
+  //The array.filter() method creates a new array with all elements that pass the test implemeted by the provided funtion. The provided function is taking an item from the array and checking if its house property is equal to the provided value. If the house matches the value, the item is inclueded in the new array returned by the filter() method
+  return array.filter(item => item.house === value);
+};
     
 showAllButton.addEventListener('click', () => { //adds an event listener to the showAllButton element, which triggers a call back function when the button is clicked
   cardsOnDom(students); //calls the cardsOnDom function with the students array as its argument, which renders all the student cards on the page
@@ -149,18 +144,59 @@ const createStudent = (e) => {
   const newStudentObj = { // creates new object with 3 properties
     id: students.length + 1, //adds 1 to create unique id
     imageUrl: "https://i.pinimg.com/564x/2d/e9/60/2de96055ce6c2a0404a3aa19ad1ac0d2.jpg",
-    name: `Hmm, difficult. VERY difficult, ${document.querySelector('#name').value}`, //sets name propery to the value of the input field with id 'name'
-    house: houses[houseIndex] //sets house property to a random house name from the house array
+    name: `Hmm, difficult. VERY difficult, ${document.querySelector('#name').value}. `, //sets name propery to the value of the input field with id 'name'
+    house: houses[houseIndex], //sets house property to a random house name from the house array
+    description: 'How could you betray us?'
   }
-  
-  students.push(newStudentObj); //adds new student object to array
+
+let houseString = '';
+  switch (newStudentObj.house) {
+    case 'Gryffindor':
+      houseString = 'You have the heart of a lion!';
+      break;
+    case 'Slytherin':
+      houseString = 'Cunning and ambitious!';
+      break;
+    case 'Hufflepuff':
+      houseString = 'Loyal and patient!';
+      break;
+    case 'Ravenclaw':
+      houseString = 'Wit beyond measure is man\'s greatest treasure!';
+      break;
+    default:
+      houseString = '';
+      break;
+  }
+
+  newStudentObj.name += houseString;
+
+  students.unshift(newStudentObj); //adds new student object to beginning of array with .unshift
   cardsOnDom(students); //renders updated list of students on DOM
   form.reset(); // resets form to default values
 };
 
 
+
 form.addEventListener('submit', createStudent); //adds event listener to the form element that listens for the 'submit' event and calls the createStudent function when the event is triggered
 const app = document.querySelector('#app'); //selects the HTML element with the id app and assigns it to the app variable using the querySelector method of the document object
+
+
+
+const cardsOnDom = (array) => { // function named cardsOnDom, which takes an arry as input and renders cards for each student
+  let domString = ""; //  empty string to
+  for (const student of array) {
+    domString +=
+    `<div class="card" style="width: 12rem;">
+      <img src=${student.imageUrl} class="card-img-top" alt=${student.name}>
+      <div class="card-body>
+        <h5 class="card-title">${student.name}</h5>
+        <p>House: ${student.house}</p>
+        <button class="btn btn-danger" id="delete--${student.id}">Expel</button>
+      </div>
+    </div>`;
+  }
+  
+  renderToDom("#app", domString);
 
 /*
 expel btn deletes student
@@ -175,29 +211,12 @@ app.addEventListener('click', (e) => {
 });
 
 */
-
-const expelledStudents = [];
-
-const cardsOnDom = (array) => {
-  let domString = "";
-  for (const student of array) {
-    domString +=
-    `<div class="card" style="width: 12rem;">
-      <img src=${student.imageUrl} class="card-img-top" alt=${student.name}>
-      <div class="card-body>
-        <h5 class="card-title">${student.name}</h5>
-        <p>House: ${student.house}</p>
-        <button class="btn btn-danger" id="delete--${student.id}">Expel</button>
-      </div>
-    </div>`;
-  }
   
-  renderToDom("#app", domString);
-  
-  const deleteButtons = document.querySelectorAll(".btn-danger");
+const deleteButtons = document.querySelectorAll(".btn-danger");
   deleteButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
       const studentId = parseInt(e.target.id.split("--")[1]);
+      //changes student id from true,1 to false,0
       const index = students.findIndex((student) => student.id === studentId);
       const expelledStudent = students.splice(index, 1)[0];
       expelledStudents.push(expelledStudent);
@@ -207,8 +226,29 @@ const cardsOnDom = (array) => {
   });
 };
 
+const expelledStudents = []; //empty array to hold expelled students
 
 
+expelledStudents.push({
+  id: 10,
+  name: "Dementor",
+  imageUrl: "https://i.pinimg.com/564x/16/d9/70/16d9706f4c1301be0c496dec7791e33e.jpg",
+  description: "..."
+});
+
+expelledStudents.push({
+  id: 11,
+  name: "Death Eater",
+  imageUrl: "https://i.pinimg.com/564x/18/bc/61/18bc61a4041dc3f8b917f634f6f080cd.jpg",
+  description: "The Dark Lord Shall Rise Again!"
+});
+
+expelledStudents.push({
+  id: 12,
+  name: "Lord Voldemort",
+  imageUrl: "https://i.pinimg.com/564x/4f/d6/89/4fd689c6f0dd164d52b4e76f9f639897.jpg",
+  description: "Join Me!"
+});
 
 
 const renderExpelledToDom = (array) => {
@@ -219,34 +259,14 @@ const renderExpelledToDom = (array) => {
       <img src=${student.imageUrl} class="card-img-top" alt=${student.name}>
       <div class="card-body">
         <h5 class="card-title">${student.name}</h5>
+        <h5 class="card-title">${student.description}</h5>
       </div>
     </div>`;
   }
-  
   renderToDom("#expelled-students", domString);
 };
 
-// add these two objects to the expelledStudents array
-expelledStudents.push({
-  id: 10,
-  name: "Dementhor",
-  imageUrl: "https://i.pinimg.com/564x/16/d9/70/16d9706f4c1301be0c496dec7791e33e.jpg",
-});
-
-expelledStudents.push({
-  id: 11,
-  name: "Death Eater",
-  imageUrl: "https://i.pinimg.com/564x/18/bc/61/18bc61a4041dc3f8b917f634f6f080cd.jpg",
-});
-
-expelledStudents.push({
-  id: 12,
-  name: "Lord Voldemort",
-  imageUrl: "https://i.pinimg.com/564x/4f/d6/89/4fd689c6f0dd164d52b4e76f9f639897.jpg",
-});
-
-
-
+renderExpelledToDom(expelledStudents);
 
 
 const startApp = () => {
