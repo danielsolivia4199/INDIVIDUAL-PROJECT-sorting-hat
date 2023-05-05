@@ -149,8 +149,11 @@ const createStudent = (e) => {
     description: 'How could you betray us?'
   }
 
+//define variable houseString and set it to an empty string
 let houseString = '';
+//use a switch statement to check the value of newStudentObj.house
   switch (newStudentObj.house) {
+    //if newStudentObj.house is = to 'Gryffindor', set houseString to 'You have the heart of a lion!'
     case 'Gryffindor':
       houseString = 'You have the heart of a lion!';
       break;
@@ -163,11 +166,13 @@ let houseString = '';
     case 'Ravenclaw':
       houseString = 'Wit beyond measure is man\'s greatest treasure!';
       break;
+      //If newStudentObj.house is not = to any cases above, set houseString to an empty string
     default:
       houseString = '';
       break;
   }
 
+  //adds the value of houseString to the end of newStudentObj.name
   newStudentObj.name += houseString;
 
   students.unshift(newStudentObj); //adds new student object to beginning of array with .unshift
@@ -196,6 +201,7 @@ const cardsOnDom = (array) => { // function named cardsOnDom, which takes an arr
     </div>`;
   }
   
+  //calls the function renderToDom and passes two arguments to it. First #app, the CSS selector of the element on the HTML page where we want to render the dynamically created content. Second, domString which is a string containing the HTML content to render on the DOM
   renderToDom("#app", domString);
 
 /*
@@ -213,18 +219,26 @@ app.addEventListener('click', (e) => {
 */
   
 const deleteButtons = document.querySelectorAll(".btn-danger");
+//selects all delete buttons on page
   deleteButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
+      // adds a click event listener to each delete button
       const studentId = parseInt(e.target.id.split("--")[1]);
       //changes student id from true,1 to false,0
       const index = students.findIndex((student) => student.id === studentId);
+      //fins the index of the student object in the students array with the matching id
       const expelledStudent = students.splice(index, 1)[0];
+      //removes the student object from the students array and stores it in a variable
       expelledStudents.push(expelledStudent);
+      //adds the expelled student object to the expelledStudents array
       renderExpelledToDom(expelledStudents);
+      //updates the DOM to display the list of expelled students
       cardsOnDom(students);
+      //updates the DOM to display the list of remaining students
     });
   });
 };
+//loops through all the delete buttons and adds an event listener to each one that removes the corresponding student object from the student array and adds it to the expelledStudents array, then updates the DOM to display the updated lists of students and expelled students
 
 const expelledStudents = []; //empty array to hold expelled students
 
@@ -247,11 +261,12 @@ expelledStudents.push({
   id: 12,
   name: "Lord Voldemort",
   imageUrl: "https://i.pinimg.com/564x/4f/d6/89/4fd689c6f0dd164d52b4e76f9f639897.jpg",
-  description: "Join Me!"
+  description: "Join Me! Expel students to grow my army!"
 });
 
-
+//iterates over student objexts in the array parameter
 const renderExpelledToDom = (array) => {
+  //HTML added to each student object for the cards to the domString variable
   let domString = "";
   for (const student of array) {
     domString +=
@@ -263,14 +278,15 @@ const renderExpelledToDom = (array) => {
       </div>
     </div>`;
   }
+  //renders the completed domString to the DOM by calling the renderToDom function
   renderToDom("#expelled-students", domString);
 };
-
+//calls renderExpelledToDom and passes expelledStudents as an argument which displays the expeeled students on the DOM 
 renderExpelledToDom(expelledStudents);
 
-
+//defines function startApp that calls cardsOnDom function and passes student array as an argument. Calling the cardsOnDom function generates the HTML code
 const startApp = () => {
 cardsOnDom(students);
 };
-
+//causes the function to run and render the student cards on the DOM
 startApp();
